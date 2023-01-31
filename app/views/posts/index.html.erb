@@ -1,7 +1,24 @@
+<% if user_signed_in? %>
+  <div>
+  <%= link_to "Sign Out", destroy_user_session_path %>
+  </div>
+  <div>
+  <%= link_to "Create New Post", new_post_path %>
+  </div>
+<% else %>
+  <div>
+  <%= link_to "Sign in", new_user_session_path %>
+  </div>
+  <div>
+  <%= link_to "New User?", new_user_registration_path %>
+  </div>
+<% end %>
+
+
 <% if @posts.any? %>
   <% @posts.each do |post| %>
   <div class="post">
-    <h2 class="title"> <%= post.title %> </h2> <br />
+    <h1 class="title"> <%= post.title %> </h1> <br />
     <p class="author"> Author:
       <% if user_signed_in? %>
         <%= post.user.username %>
