@@ -1,0 +1,17 @@
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+  <div class="post">
+    <h2 class="title"> <%= post.title %> </h2> <br />
+    <p class="author"> Author:
+      <% if user_signed_in? %>
+        <%= post.user.username %>
+      <% else %>
+          <%= "Anon" %>
+      <% end %>
+    </p><br />
+    <p class="content"> <%= post.content %></p> <br />
+  </div>
+  <% end %>
+<% end %>
+
+

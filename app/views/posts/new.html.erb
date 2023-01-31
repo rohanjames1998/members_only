@@ -1,0 +1,21 @@
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@post.errors.count, "error") %> occured while creating your post
+    </h2>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @post do |f| %>
+  <%= f.label(:title, "Title") %>
+  <%= f.text_field :title, placeholder:"Your post title..."%>
+  <%= f.label(:content, "Content") %>
+  <%= f.text_area :content, placeholder: "Your post here..."  %>
+  <%= f.submit "Post" %>
+<% end %>
+
