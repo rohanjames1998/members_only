@@ -11,11 +11,13 @@
   </div>
 <% end %>
 
+
+
 <%= form_with model: @post do |f| %>
-  <%= f.label(:title, "Title") %>
-  <%= f.text_field :title, placeholder:"Your post title..."%>
-  <%= f.label(:content, "Content") %>
-  <%= f.text_area :content, placeholder: "Your post here..."  %>
+  <%= f.label(:title, "Title") %> <br />
+  <%= f.text_field :title, placeholder:"Your post title..."%><br />
+  <%= f.label(:content, "Content") %><br />
+  <%= f.text_area :content, placeholder: "Your post here..."  %><br />
   <%= f.submit "Post" %>
 <% end %>
 
